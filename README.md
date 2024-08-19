@@ -2,7 +2,9 @@
 
 ## Overview
 
-`APIResponseParser` is a **VERY BASIC VERSION** of a Java utility designed to parse XML responses from an API and extract specific data into a structured format. The example provided demonstrates how the parser can be used to extract information about a book from an XML response.
+This `APIResponseParser` project is a very basic version of an API response parser that I am creating as part of my journey to learn Java.
+
+`APIResponseParser` is a Java utility designed to parse XML responses from an API and extract specific data into a structured format. The example provided demonstrates how the parser can be used to extract information about a book from an XML response.
 
 ## Features
 
