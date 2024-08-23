@@ -1,4 +1,3 @@
-import java.lang.String;
 
 public class APIResponseParser {
     public static Book parse(String response) {
@@ -10,35 +9,32 @@ public class APIResponseParser {
         book.setTitle(title);
 
         startRule = "<name>";
-        String author = parse(response, startRule,endRule);
+        String author = parse(response, startRule, endRule);
         book.setAuthor(author);
 
         startRule = "<original_publication_year type=\"integer\">";
-        int publicationYear = Integer.parseInt(parse(response,startRule,endRule));
+        int publicationYear = Integer.parseInt(parse(response, startRule, endRule));
         book.setPublicationYear(publicationYear);
 
-
         startRule = "<average_rating>";
-        double averageRating = Double.parseDouble(parse(response,startRule,endRule));
+        double averageRating = Double.parseDouble(parse(response, startRule, endRule));
         book.setAverageRating(averageRating);
 
         startRule = "<ratings_count type=\"integer\">";
-        int ratingsCount = Integer.parseInt(parse(response,startRule,endRule).replaceAll(",",""));
+        int ratingsCount = Integer.parseInt(parse(response, startRule, endRule).replaceAll(",", ""));
         book.setRatingsCount(ratingsCount);
 
         startRule = "<image_url>";
-        String imageUrl = parse(response,startRule,endRule);
+        String imageUrl = parse(response, startRule, endRule);
         book.setImageUrl(imageUrl);
 
         return book;
 
     }
 
-    // write overloaded parse method with the 3 parameters response, startRule, endRule
-
     private static String parse(String response, String startRule, String endRule) {
-        response = response.substring(response.indexOf(startRule)+startRule.length());
-        return response.substring(0,response.indexOf(endRule));
+        response = response.substring(response.indexOf(startRule) + startRule.length());
+        return response.substring(0, response.indexOf(endRule));
     }
 
     public static void main(String[] args) {
